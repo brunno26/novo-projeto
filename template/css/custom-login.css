@@ -1,0 +1,38 @@
+
+.bg-login-image {
+  background-image: url('../img/bg-login.png'); /* caminho da imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Aumenta a altura mínima do cartão de login */
+.login-card-altura {
+  min-height: 450px; /* Você pode ajustar este valor para a altura desejada */
+}
+
+/* Controla a largura máxima do cartão de login e o torna responsivo */
+.card.o-hidden.border-0.shadow-lg {
+  max-width: 1000px; /* Define a largura máxima do cartão */
+  width: 100%; /* Ocupa 95% da largura disponível, para ser responsivo */
+}
+
+/* Ajusta a altura da imagem lateral para se alinhar melhor com o aumento do cartão */
+.bg-login-image {
+  min-height: 450px; /* Você pode ajustar este valor para a altura da imagem */
+  background-size: cover; /* Garante que a imagem cubra a área */
+  background-position: center; /* Centraliza a imagem */
+}
+
+/* Ajuste para telas menores (opcional, se necessário para responsividade) */
+@media (max-width: 991.98px) {
+  .login-card-altura {
+    min-height: auto; /* Remove a altura mínima em telas menores para melhor adaptação */
+  }
+
+  .card.o-hidden.border-0.shadow-lg {
+    max-width: 100%; /* Permite que o cartão ocupe toda a largura em telas menores */
+  }
+
+  
+}
