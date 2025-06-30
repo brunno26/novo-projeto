@@ -1,34 +1,8 @@
-/* Estilos para o layout da página inteira */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f5; 
-}
-/* O container principal que vai centralizar o conteúdo ativo */
-.container-central {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-top: 250px;
-    justify-content: center;
-    align-items: center;
-}
+.btn-imagem img {
+      width: 150px;
+      transition: transform 0.2s;
+    }
 
-/* Estilos para os botões de imagem */
-.btn-imagem {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-.btn-imagem:hover img {
-    transform: scale(1.05);
-}
-
-/* Esconde os containers dinâmicos internos do formulário por padrão */
-#form-container,
-#banco-container,
-#cartao-container {
-    display: none;
-}   
+    .btn-imagem:hover img {
+      transform: scale(1.05);
+    }

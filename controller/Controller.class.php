@@ -145,8 +145,9 @@ class Controller
     echo '<hr class="sidebar-divider">'; // separador dashboard → menu principal
 
     // Lançamentos
+   // DENTRO DA SUA public function menu()
     echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="index.php?inserir_lancamento">';
+    echo '  <a class="nav-link" href="#" data-toggle="modal" data-target="#modalEscolha">';
     echo '    <i class="fas fa-fw fa-money-check-alt"></i>';
     echo '    <span>Lançamentos</span>';
     echo '  </a>';
