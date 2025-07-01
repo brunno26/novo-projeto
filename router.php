@@ -242,15 +242,17 @@ if (isset($_POST['inserir_lancamento'])) {
     //instânciar controller
     $objController = new Controller();
     //dados
-    $id_cad_tipo = htmlspecialchars($_POST['id_cad_tipo']);
-    $id_cad_plano = htmlspecialchars($_POST['id_cad_plano']);
-    $desc_lanc = htmlspecialchars($_POST['desc_lanc']);
-    $data_venc = htmlspecialchars($_POST['data_venc']);
-    $valor_lanc = htmlspecialchars($_POST['valor_lanc']);
-    $id_cad_forma = htmlspecialchars($_POST['id_cad_forma']);
-    $id_cad_banco = htmlspecialchars($_POST['id_cad_banco']);
-    $id_cad_cartao = htmlspecialchars($_POST['id_cad_cartao']);
-    $data_rec_pag = htmlspecialchars($_POST['data_rec_pag']);
+    // Use o operador ternário para verificar se a chave existe antes de acessá-la
+    $id_cad_tipo = isset($_POST['id_cad_tipo']) ? htmlspecialchars($_POST['id_cad_tipo']) : '';
+    $id_cad_plano = isset($_POST['id_cad_plano']) ? htmlspecialchars($_POST['id_cad_plano']) : '';
+    $desc_lanc = isset($_POST['desc_lanc']) ? htmlspecialchars($_POST['desc_lanc']) : '';
+    $data_venc = isset($_POST['data_venc']) ? htmlspecialchars($_POST['data_venc']) : '';
+    $valor_lanc = isset($_POST['valor_lanc']) ? htmlspecialchars($_POST['valor_lanc']) : '';
+    $id_cad_forma = isset($_POST['id_cad_forma']) ? htmlspecialchars($_POST['id_cad_forma']) : '';
+    $id_cad_banco = isset($_POST['id_cad_banco']) ? htmlspecialchars($_POST['id_cad_banco']) : ''; // AQUI
+    $id_cad_cartao = isset($_POST['id_cad_cartao']) ? htmlspecialchars($_POST['id_cad_cartao']) : ''; // E AQUI
+    $data_rec_pag = isset($_POST['data_rec_pag']) ? htmlspecialchars($_POST['data_rec_pag']) : '';
+
     //invocar o método de inserir lançamento
     $objController->inserir_lancamento($id_cad_tipo, $id_cad_plano, $desc_lanc, $data_venc, $valor_lanc, $id_cad_forma, $id_cad_banco, $id_cad_cartao, $data_rec_pag);
 }

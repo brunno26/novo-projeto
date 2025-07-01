@@ -69,4 +69,27 @@ class Tipo extends Conexao
             return false;
         }
     }
+
+    public function listarTodos()
+{
+    try {
+        // Pega a conexão com o banco de dados
+        $bd = $this->conectar();
+
+        // Query simples para pegar o ID e a descrição de todos os tipos
+        $sql = "SELECT id_cad_tipo, desc_tipo FROM tb_cad_tipo ORDER BY id_cad_tipo ASC";
+        
+        // Executa a query diretamente, pois não há parâmetros de usuário
+        $query = $bd->query($sql);
+
+        // Retorna todos os resultados como um array de objetos
+        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+        return $resultado;
+
+    } catch (PDOException $e) {
+        // Em caso de erro, registra a mensagem e retorna um array vazio
+        error_log("Erro ao listar tipos: " . $e->getMessage());
+        return [];
+    }
+}
 }

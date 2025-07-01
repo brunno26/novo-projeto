@@ -166,6 +166,7 @@ class Lancamento extends Conexao
         } catch (PDOException $e) {
             //print "Erro ao inserir";
             return false;
+            // die("ERRO DE BANCO DE DADOS: " . $e->getMessage()); 
         }
     }
 

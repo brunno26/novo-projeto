@@ -99,7 +99,6 @@ class Controller
                 include_once 'login.php';
                 $this->mostrarMensagem("A nova senha foi enviada para o e-mail informado!");
             }
-
         } else {
             include_once 'recuperar.php';
             $this->mostrarMensagem("E-mail não cadastrado!");
@@ -122,100 +121,100 @@ class Controller
     //==============================GERAR PDF==============================
 
     public function menu()
-{
-    // DEPOIS
-    echo '<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">';
+    {
+        // DEPOIS
+        echo '<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">';
 
-    // Logo
-    echo '<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">';
-    echo '  <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-coins"></i></div>';
-    echo '  <div class="sidebar-brand-text mx-3">SFP-GZ</div>';
-    echo '</a>';
+        // Logo
+        echo '<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">';
+        echo '  <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-coins"></i></div>';
+        echo '  <div class="sidebar-brand-text mx-3">SFP-GZ</div>';
+        echo '</a>';
 
-    echo '<hr class="sidebar-divider my-0">'; // separador logo → dashboard
+        echo '<hr class="sidebar-divider my-0">'; // separador logo → dashboard
 
-    // Dashboard
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="index.php?principal">';
-    echo '    <i class="fas fa-fw fa-tachometer-alt"></i>';
-    echo '    <span>Dashboard</span>';
-    echo '  </a>';
-    echo '</li>';
+        // Dashboard
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="index.php?principal">';
+        echo '    <i class="fas fa-fw fa-tachometer-alt"></i>';
+        echo '    <span>Dashboard</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    echo '<hr class="sidebar-divider">'; // separador dashboard → menu principal
+        echo '<hr class="sidebar-divider">'; // separador dashboard → menu principal
 
-    // Lançamentos
-   // DENTRO DA SUA public function menu()
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="#" data-toggle="modal" data-target="#modalEscolha">';
-    echo '    <i class="fas fa-fw fa-money-check-alt"></i>';
-    echo '    <span>Lançamentos</span>';
-    echo '  </a>';
-    echo '</li>';
+        // Lançamentos
+        // DENTRO DA SUA public function menu()
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="#" data-toggle="modal" data-target="#modalEscolha">';
+        echo '    <i class="fas fa-fw fa-money-check-alt"></i>';
+        echo '    <span>Lançamentos</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    // Cadastros
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastros" aria-expanded="true" aria-controls="collapseCadastros">';
-    echo '    <i class="fas fa-fw fa-folder-plus"></i>';
-    echo '    <span>Cadastros</span>';
-    echo '  </a>';
-    echo '  <div id="collapseCadastros" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?inserir_banco">Bancos</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_bandeira">Bandeiras</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_cartao">Cartões</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_forma">Formas de rec/pag</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_plano">Plano de contas</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        // Cadastros
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastros" aria-expanded="true" aria-controls="collapseCadastros">';
+        echo '    <i class="fas fa-fw fa-folder-plus"></i>';
+        echo '    <span>Cadastros</span>';
+        echo '  </a>';
+        echo '  <div id="collapseCadastros" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?inserir_banco">Bancos</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_bandeira">Bandeiras</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_cartao">Cartões</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_forma">Formas de rec/pag</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_plano">Plano de contas</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    // Consultas
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas" aria-expanded="true" aria-controls="collapseConsultas">';
-    echo '    <i class="fas fa-fw fa-search"></i>';
-    echo '    <span>Consultas</span>';
-    echo '  </a>';
-    echo '  <div id="collapseConsultas" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?consultar_lancamento">Lançamentos</a>';
-    echo '      <div class="collapse-divider"></div>';
-    echo '      <a class="collapse-item" href="index.php?consultar_banco">Bancos</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_bandeira">Bandeiras</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_cartao">Cartões</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_forma">Formas de rec/pag</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_plano">Plano de contas</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        // Consultas
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas" aria-expanded="true" aria-controls="collapseConsultas">';
+        echo '    <i class="fas fa-fw fa-search"></i>';
+        echo '    <span>Consultas</span>';
+        echo '  </a>';
+        echo '  <div id="collapseConsultas" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?consultar_lancamento">Lançamentos</a>';
+        echo '      <div class="collapse-divider"></div>';
+        echo '      <a class="collapse-item" href="index.php?consultar_banco">Bancos</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_bandeira">Bandeiras</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_cartao">Cartões</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_forma">Formas de rec/pag</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_plano">Plano de contas</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    // Relatórios
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorios" aria-expanded="true" aria-controls="collapseRelatorios">';
-    echo '    <i class="fas fa-fw fa-chart-line"></i>';
-    echo '    <span>Relatórios</span>';
-    echo '  </a>';
-    echo '  <div id="collapseRelatorios" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?consultar_editora">Receitas/mês</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_editora">Despesas/mês</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_editora">Saldo/mês</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        // Relatórios
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorios" aria-expanded="true" aria-controls="collapseRelatorios">';
+        echo '    <i class="fas fa-fw fa-chart-line"></i>';
+        echo '    <span>Relatórios</span>';
+        echo '  </a>';
+        echo '  <div id="collapseRelatorios" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?consultar_editora">Receitas/mês</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_editora">Despesas/mês</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_editora">Saldo/mês</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    echo '<hr class="sidebar-divider">';
+        echo '<hr class="sidebar-divider">';
 
-    // Sair
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="index.php?sair">';
-    echo '    <i class="fas fa-fw fa-sign-out-alt"></i>';
-    echo '    <span>Sair (' . $_SESSION['email'] . ')</span>';
-    echo '  </a>';
-    echo '</li>';
+        // Sair
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="index.php?sair">';
+        echo '    <i class="fas fa-fw fa-sign-out-alt"></i>';
+        echo '    <span>Sair (' . $_SESSION['email'] . ')</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    echo '</ul>';
-}
+        echo '</ul>';
+    }
 
     //==============================MOSTRAR MENSAGEM==============================
 
@@ -362,25 +361,32 @@ class Controller
     }
 
     //select de banco
-    public function selectBanco($id_cad_banco = null)
-    {
-        //instanciar a classe Banco
-        $objBanco = new Banco();
-        //invocar o método
-        $resultado = $objBanco->consultarBanco(null);
-        //montar o select dinamicamente
-        echo '<label for="id_cad_banco" class="form-label">Banco:</label>';
-        echo '<select name="id_cad_banco" class="form-select mb-3" aria-label="Default select example" required>';
-        echo '    <option value="" selected>Selecione o banco</option>';
-        foreach ($resultado as $key => $valor) {
-            if ($valor->id_cad_banco == $id_cad_banco) {
-                echo '<option selected value="' . $valor->id_cad_banco . '">' . $valor->nome_banco . '</option>';
-            } else {
-                echo '<option value="' . $valor->id_cad_banco . '">' . $valor->nome_banco . '</option>';
-            }
+    public function selectBanco($id_cad_banco_selecionado = null)
+{
+    // Instanciar a classe Banco
+    $objBanco = new Banco();
+    
+    // Invocar o método para buscar os dados
+    $resultado = $objBanco->consultarBanco(null); // Não precisa passar null aqui
+
+    // Gerar a opção padrão (placeholder)
+    echo '<option value="" disabled selected>Selecione o banco</option>';
+
+    // Verificar se a consulta retornou resultados
+    if ($resultado) {
+        // Iterar sobre os resultados para criar cada opção
+        foreach ($resultado as $banco) {
+            
+            // Lógica simplificada para pré-selecionar
+            $selecionado = ($banco->id_cad_banco == $id_cad_banco_selecionado) ? 'selected' : '';
+
+            // Impressão segura (com htmlspecialchars)
+            echo '<option ' . $selecionado . ' value="' . htmlspecialchars($banco->id_cad_banco) . '">'
+                 . htmlspecialchars($banco->nome_banco) 
+                 . '</option>';
         }
-        echo '</select>';
     }
+}
 
     public function modal_alterar_banco($id_cad_banco, $nome_banco, $num_agencia, $num_conta)
     {
@@ -582,7 +588,7 @@ class Controller
         echo '      </div>';
         echo '<form method="post" action="index.php">';
         echo '  <div class="modal-body">';
-        echo'       <label for="nome_band" class="form-label">Bandeira do cartão:</label>';
+        echo '       <label for="nome_band" class="form-label">Bandeira do cartão:</label>';
         echo '      <input type="text" class="form-control" name="nome_band" value="' . $nome_band . '">';
         echo '  </div>';
         echo '  <div class="modal-footer">';
@@ -733,25 +739,30 @@ class Controller
         }
     }
 
-    //select de cartão
-    public function selectCartao($id_cad_cartao = null)
+    public function selectCartao($id_cad_cartao_selecionado = null)
     {
-        //instanciar a classe Cartão
+        // Instanciar a classe Cartao
         $objCartao = new Cartao();
-        //invocar o método
-        $resultado = $objCartao->consultarCartao(null);
-        //montar o select dinamicamente
-        echo '<label for="id_cad_cartao" class="form-label">Cartão:</label>';
-        echo '<select name="id_cad_cartao" class="form-select mb-3" aria-label="Default select example" required>';
-        echo '    <option value="" selected>Selecione o cartão</option>';
-        foreach ($resultado as $key => $valor) {
-            if ($valor->id_cad_cartao == $id_cad_cartao) {
-                echo '<option selected value="' . $valor->id_cad_cartao . '">' . $valor->nome_cartao . '</option>';
-            } else {
-                echo '<option value="' . $valor->id_cad_cartao . '">' . $valor->nome_cartao . '</option>';
+        // Invocar o método para consultar os dados
+        $resultado = $objCartao->consultarCartao(null); // O 'null' não é necessário se o método não o utiliza
+
+        // Gerar a opção padrão (placeholder)
+        echo '<option value="" disabled selected>Selecione o cartão</option>';
+
+        // Verificar se a consulta retornou resultados antes de continuar
+        if ($resultado) {
+            // Iterar sobre os resultados para criar cada opção
+            foreach ($resultado as $cartao) {
+
+                // 1. Lógica simplificada para pré-selecionar
+                $selecionado = ($cartao->id_cad_cartao == $id_cad_cartao_selecionado) ? 'selected' : '';
+
+                // 2. Impressão segura (com htmlspecialchars) e limpa
+                echo '<option ' . $selecionado . ' value="' . htmlspecialchars($cartao->id_cad_cartao) . '">'
+                    . htmlspecialchars($cartao->nome_cartao)
+                    . '</option>';
             }
         }
-        echo '</select>';
     }
 
     public function modal_alterar_cartao($id_cad_cartao, $id_cad_band, $nome_cartao, $num_cartao)
@@ -921,24 +932,22 @@ class Controller
     }
 
     //select de forma
-    public function selectForma($id_cad_forma = null)
+    public function selectForma($id_cad_forma_selecionada = null)
     {
-        //instanciar a classe Forma
-        $objForma = new Forma();
-        //invocar o método
+        $objForma = new Forma(); // Precisaremos criar a classe Forma
         $resultado = $objForma->consultarForma(null);
-        //montar o select dinamicamente
-        echo '<label for="id_cad_forma" class="form-label">Forma de Rec/Pag:</label>';
-        echo '<select name="id_cad_forma" class="form-select mb-3" aria-label="Default select example" required>';
-        echo '    <option value="" selected>Selecione a forma de rec/pag</option>';
-        foreach ($resultado as $key => $valor) {
-            if ($valor->id_cad_forma == $id_cad_forma) {
-                echo '<option selected value="' . $valor->id_cad_forma . '">' . $valor->desc_forma . '</option>';
-            } else {
-                echo '<option value="' . $valor->id_cad_forma . '">' . $valor->desc_forma . '</option>';
+
+        echo '<option value="" disabled selected>Selecione a forma</option>';
+
+        if ($resultado) {
+            foreach ($resultado as $forma) {
+                // A sua tabela tb_cad_forma tem as colunas id_cad_forma e desc_forma
+                $selecionado = ($forma->id_cad_forma == $id_cad_forma_selecionada) ? 'selected' : '';
+                echo '<option ' . $selecionado . ' value="' . htmlspecialchars($forma->id_cad_forma) . '">'
+                     . htmlspecialchars($forma->desc_forma) 
+                     . '</option>';
             }
         }
-        echo '</select>';
     }
 
     public function modal_alterar_forma($id_cad_forma, $desc_forma)
@@ -1279,25 +1288,24 @@ class Controller
     }
 
     //select de plano
-    public function selectPlano($id_cad_plano = null)
+    public function selectPlano($id_cad_plano_selecionado = null)
     {
-        //instanciar a classe Plano
-        $objPlano = new Plano();
-        //invocar o método
+        $objPlano = new Plano(); // Precisaremos criar a classe Plano
         $resultado = $objPlano->consultarPlano(null);
-        //montar o select dinamicamente
-        echo '<label for="id_cad_plano" class="form-label">Plano de contas:</label>';
-        echo '<select name="id_cad_plano" class="form-select mb-3" aria-label="Default select example" required>';
-        echo '    <option value="" selected>Selecione o plano de contas</option>';
-        foreach ($resultado as $key => $valor) {
-            if ($valor->id_cad_plano == $id_cad_plano) {
-                echo '<option selected value="' . $valor->id_cad_plano . '">' . $valor->desc_plano . '</option>';
-            } else {
-                echo '<option value="' . $valor->id_cad_plano . '">' . $valor->desc_plano . '</option>';
+
+        echo '<option value="" disabled selected>Selecione o plano de contas</option>';
+
+        if ($resultado) {
+            foreach ($resultado as $plano) {
+                // A sua tabela tb_cad_plano tem as colunas id_cad_plano e desc_plano
+                $selecionado = ($plano->id_cad_plano == $id_cad_plano_selecionado) ? 'selected' : '';
+                echo '<option ' . $selecionado . ' value="' . htmlspecialchars($plano->id_cad_plano) . '">'
+                     . htmlspecialchars($plano->desc_plano) 
+                     . '</option>';
             }
         }
-        echo '</select>';
     }
+
 
     public function modal_alterar_plano($id_cad_plano, $desc_plano)
     {
@@ -1353,24 +1361,22 @@ class Controller
     //==============================TIPO==============================
 
     //select de tipo
-    public function selectTipo($id_cad_tipo = null)
+   public function selectTipo($id_cad_tipo_selecionado = null)
     {
-        //instanciar a classe Tipo
-        $objTipo = new Tipo();
-        //invocar o método
+        $objTipo = new Tipo(); // Precisaremos criar a classe Tipo
         $resultado = $objTipo->consultarTipo(null);
-        //montar o select dinamicamente
-        echo '<label for="id_cad_tipo" class="form-label">Tipo: </label>';
-        echo '<select name="id_cad_tipo" class="form-select mb-3" aria-label="Default select example" required>';
-        echo '<option value="" selected >Selecione o tipo</option>';
-        foreach ($resultado as $key => $valor) {
-            if ($valor->id_cad_tipo == $id_cad_tipo) {
-                echo '<option selected value="' . $valor->id_cad_tipo . '">' . $valor->desc_tipo . '</option>';
-            } else {
-                echo '<option value="' . $valor->id_cad_tipo . '">' . $valor->desc_tipo . '</option>';
+
+        echo '<option value="" disabled selected>Selecione o tipo</option>';
+
+        if ($resultado) {
+            foreach ($resultado as $tipo) {
+                // A sua tabela tb_cad_tipo tem as colunas id_cad_tipo e desc_tipo
+                $selecionado = ($tipo->id_cad_tipo == $id_cad_tipo_selecionado) ? 'selected' : '';
+                echo '<option ' . $selecionado . ' value="' . htmlspecialchars($tipo->id_cad_tipo) . '">'
+                     . htmlspecialchars($tipo->desc_tipo) 
+                     . '</option>';
             }
         }
-        echo '</select>';
     }
 
     //==============================USUÁRIO==============================
@@ -1539,4 +1545,46 @@ class Controller
         echo '</div>';
         echo '</div>';
     }
+
+    public function renderizarBotoesTipo()
+{
+    $objTipo = new Tipo();
+    $tipos = $objTipo->listarTodos();
+
+    // Lembre-se de apagar as linhas de DEBUG (echo e var_dump) depois que funcionar.
+
+    if ($tipos) {
+        foreach ($tipos as $tipo) {
+            $id_botao = '';
+            $imagem = '';
+            $alt_text = '';
+
+            $desc = strtolower($tipo->desc_tipo); // Converte para minúsculas: "recebimento" ou "pagamento"
+
+            // ===== CORREÇÃO AQUI =====
+            // Agora procuramos pelas palavras corretas
+            if (strpos($desc, 'recebimento') !== false) {
+                $id_botao = 'btn-receita'; // Mantemos os IDs do CSS/JS
+                $imagem = 'images/receita.png';
+                $alt_text = 'Novo Recebimento'; // Ajustamos o texto para ficar consistente
+            } elseif (strpos($desc, 'pagamento') !== false) {
+                $id_botao = 'btn-despesa'; // Mantemos os IDs do CSS/JS
+                $imagem = 'images/despesa.png';
+                $alt_text = 'Novo Pagamento'; // Ajustamos o texto para ficar consistente
+            }
+
+            // O resto do código funciona como antes
+            if ($id_botao) {
+                echo '<button type="button" class="btn-imagem btn btn-light mx-2" id="' . $id_botao . '" data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '">';
+                echo '    <img src="' . $imagem . '" alt="' . $alt_text . '">';
+                echo '</button>';
+            }
+        }
+    }
 }
+
+}
+
+
+
+
