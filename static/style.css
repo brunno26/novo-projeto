@@ -1,8 +1,79 @@
-.btn-imagem img {
-      width: 150px;
-      transition: transform 0.2s;
-    }
+.sidebar-gradient {
+  /* Cor de fallback */
+  background-color: #4b1c71;
+  /* Gradiente de fundo */
+  background-image: linear-gradient(180deg, #4b1c71 10%, #7f4ca5 100%);
+  background-size: cover;
+}
 
-    .btn-imagem:hover img {
-      transform: scale(1.05);
-    }
+/* --- Cores das letras da Sidebar (Amarelo Dourado Fixo) --- */
+
+/* Definindo estilos para os itens da lista principal (li) */
+/* Isso é crucial para que o fundo do hover não ocupe toda a largura */
+.sidebar .nav-item {
+  margin-bottom: 0.1rem; /* Espaçamento entre os itens principais */
+}
+
+/* Estilos para os links principais */
+.sidebar .nav-item .nav-link {
+  color: #FFD700; /* Amarelo Dourado Fixo */
+  transition: background-color 0.2s ease-in-out; /* Suaviza a transição do background */
+  border-radius: 0.3rem; /* Bordas arredondadas para o destaque */
+  /* Ajuste o padding para controlar o tamanho do destaque.
+     O padding horizontal (segundo valor) vai influenciar na largura. */
+  padding: 0.75rem 1rem;
+  /* IMPORTANTE: Defina display: flex para alinhar ícone e texto e permitir que o background funcione bem */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente ícone e texto */
+}
+
+/* Ajuste para os ícones dentro dos links */
+.sidebar .nav-item .nav-link i {
+    margin-right: 0.5rem; /* Espaçamento entre ícone e texto */
+}
+
+
+/* Estilos para os itens dos submenus */
+.sidebar .collapse-item {
+  color: #FFD700; /* Amarelo Dourado Fixo */
+  transition: background-color 0.2s ease-in-out; /* Suaviza a transição do background */
+  border-radius: 0.3rem; /* Bordas arredondadas para o destaque */
+  /* Ajuste o padding para os subitens */
+  padding: 0.5rem 1.5rem;
+  /* IMPORTANTE: Defina display: block ou flex para que o background funcione corretamente */
+  display: block; /* Ou display: flex; se tiver ícones no submenu e quiser alinhar */
+  margin: 0.05rem 0.5rem 0.05rem 2rem; /* Margem esquerda maior para indentação do submenu */
+}
+
+
+.sidebar-brand .sidebar-brand-text {
+  color: #FFD700; /* Amarelo Dourado Fixo */
+}
+
+.sidebar-brand-icon .fas.fa-coins {
+  color: #FFD700; /* Amarelo Dourado Fixo */
+}
+
+/* --- Efeito Hover (Destaque de Fundo) com a cor da sua referência --- */
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .collapse-item:hover {
+  /* Usando um tom de roxo mais claro, parecido com a cor final do seu gradiente.
+     Você pode experimentar com um tom ligeiramente mais claro se desejar: #8f5cb5 */
+  background-color: #7f4ca5; /* Cor do fundo no hover (a cor mais clara do seu gradiente) */
+  color: #FFD700; /* Mantém a cor da letra dourada no hover */
+  cursor: pointer; /* Adiciona um cursor de mão para indicar que é clicável */
+}
+
+/* --- Estilos para Botões de Imagem (mantidos) --- */
+
+.btn-imagem img {
+  width: 150px;
+  transition: transform 0.2s;
+}
+
+.btn-imagem:hover img {
+  transform: scale(1.05);
+}
+
+/* FORMATANDO OS FORMULÁRIOS DE INSERIR E CONSULTA */

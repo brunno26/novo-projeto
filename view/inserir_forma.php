@@ -21,7 +21,7 @@
             <!-- place navbar here -->
         </header>
         <main>
-            <div class="container d-flex justify-content-center mt-5">
+            <div class="container d-flex justify-content-center mt-1">
                 <form class="row p-3 m-3 border border-info rounded shadow-lg" method="post" action="index.php">
                     <div class="container text-center pb-2">
                         <h6>CADASTRO DE FORMAS DE RECEBIMENTOS E PAGAMENTOS</h6>

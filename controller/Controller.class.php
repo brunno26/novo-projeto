@@ -123,7 +123,7 @@ class Controller
     public function menu()
     {
         // DEPOIS
-        echo '<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">';
+        echo '<ul class="navbar-nav sidebar-gradient sidebar sidebar-dark accordion" id="accordionSidebar">';
 
         // Logo
         echo '<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">';
@@ -209,7 +209,7 @@ class Controller
         echo '<li class="nav-item">';
         echo '  <a class="nav-link" href="index.php?sair">';
         echo '    <i class="fas fa-fw fa-sign-out-alt"></i>';
-        echo '    <span>Sair (' . $_SESSION['email'] . ')</span>';
+        echo '    <span>Sair</span>';
         echo '  </a>';
         echo '</li>';
 
@@ -362,31 +362,31 @@ class Controller
 
     //select de banco
     public function selectBanco($id_cad_banco_selecionado = null)
-{
-    // Instanciar a classe Banco
-    $objBanco = new Banco();
-    
-    // Invocar o método para buscar os dados
-    $resultado = $objBanco->consultarBanco(null); // Não precisa passar null aqui
+    {
+        // Instanciar a classe Banco
+        $objBanco = new Banco();
 
-    // Gerar a opção padrão (placeholder)
-    echo '<option value="" disabled selected>Selecione o banco</option>';
+        // Invocar o método para buscar os dados
+        $resultado = $objBanco->consultarBanco(null); // Não precisa passar null aqui
 
-    // Verificar se a consulta retornou resultados
-    if ($resultado) {
-        // Iterar sobre os resultados para criar cada opção
-        foreach ($resultado as $banco) {
-            
-            // Lógica simplificada para pré-selecionar
-            $selecionado = ($banco->id_cad_banco == $id_cad_banco_selecionado) ? 'selected' : '';
+        // Gerar a opção padrão (placeholder)
+        echo '<option value="" disabled selected>Selecione o banco</option>';
 
-            // Impressão segura (com htmlspecialchars)
-            echo '<option ' . $selecionado . ' value="' . htmlspecialchars($banco->id_cad_banco) . '">'
-                 . htmlspecialchars($banco->nome_banco) 
-                 . '</option>';
+        // Verificar se a consulta retornou resultados
+        if ($resultado) {
+            // Iterar sobre os resultados para criar cada opção
+            foreach ($resultado as $banco) {
+
+                // Lógica simplificada para pré-selecionar
+                $selecionado = ($banco->id_cad_banco == $id_cad_banco_selecionado) ? 'selected' : '';
+
+                // Impressão segura (com htmlspecialchars)
+                echo '<option ' . $selecionado . ' value="' . htmlspecialchars($banco->id_cad_banco) . '">'
+                    . htmlspecialchars($banco->nome_banco)
+                    . '</option>';
+            }
         }
     }
-}
 
     public function modal_alterar_banco($id_cad_banco, $nome_banco, $num_agencia, $num_conta)
     {
@@ -944,8 +944,8 @@ class Controller
                 // A sua tabela tb_cad_forma tem as colunas id_cad_forma e desc_forma
                 $selecionado = ($forma->id_cad_forma == $id_cad_forma_selecionada) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($forma->id_cad_forma) . '">'
-                     . htmlspecialchars($forma->desc_forma) 
-                     . '</option>';
+                    . htmlspecialchars($forma->desc_forma)
+                    . '</option>';
             }
         }
     }
@@ -1300,8 +1300,8 @@ class Controller
                 // A sua tabela tb_cad_plano tem as colunas id_cad_plano e desc_plano
                 $selecionado = ($plano->id_cad_plano == $id_cad_plano_selecionado) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($plano->id_cad_plano) . '">'
-                     . htmlspecialchars($plano->desc_plano) 
-                     . '</option>';
+                    . htmlspecialchars($plano->desc_plano)
+                    . '</option>';
             }
         }
     }
@@ -1361,7 +1361,7 @@ class Controller
     //==============================TIPO==============================
 
     //select de tipo
-   public function selectTipo($id_cad_tipo_selecionado = null)
+    public function selectTipo($id_cad_tipo_selecionado = null)
     {
         $objTipo = new Tipo(); // Precisaremos criar a classe Tipo
         $resultado = $objTipo->consultarTipo(null);
@@ -1373,8 +1373,8 @@ class Controller
                 // A sua tabela tb_cad_tipo tem as colunas id_cad_tipo e desc_tipo
                 $selecionado = ($tipo->id_cad_tipo == $id_cad_tipo_selecionado) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($tipo->id_cad_tipo) . '">'
-                     . htmlspecialchars($tipo->desc_tipo) 
-                     . '</option>';
+                    . htmlspecialchars($tipo->desc_tipo)
+                    . '</option>';
             }
         }
     }
@@ -1547,44 +1547,44 @@ class Controller
     }
 
     public function renderizarBotoesTipo()
-{
-    $objTipo = new Tipo();
-    $tipos = $objTipo->listarTodos();
+    {
+        $objTipo = new Tipo();
+        $tipos = $objTipo->listarTodos();
 
-    // Lembre-se de apagar as linhas de DEBUG (echo e var_dump) depois que funcionar.
+        if ($tipos) {
+            foreach ($tipos as $tipo) {
+                $id_botao = '';
+                $imagem = '';
+                $alt_text = '';
 
-    if ($tipos) {
-        foreach ($tipos as $tipo) {
-            $id_botao = '';
-            $imagem = '';
-            $alt_text = '';
+                $desc = strtolower($tipo->desc_tipo);
 
-            $desc = strtolower($tipo->desc_tipo); // Converte para minúsculas: "recebimento" ou "pagamento"
+                if (strpos($desc, 'recebimento') !== false) {
+                    $id_botao = 'btn-receita';
+                    $imagem = 'images/receita.png';
+                    // Usaremos este texto para o tooltip
+                    $alt_text = 'Novo Recebimento';
+                } elseif (strpos($desc, 'pagamento') !== false) {
+                    $id_botao = 'btn-despesa';
+                    $imagem = 'images/despesa.png';
+                    // Usaremos este texto para o tooltip
+                    $alt_text = 'Novo Pagamento';
+                }
 
-            // ===== CORREÇÃO AQUI =====
-            // Agora procuramos pelas palavras corretas
-            if (strpos($desc, 'recebimento') !== false) {
-                $id_botao = 'btn-receita'; // Mantemos os IDs do CSS/JS
-                $imagem = 'images/receita.png';
-                $alt_text = 'Novo Recebimento'; // Ajustamos o texto para ficar consistente
-            } elseif (strpos($desc, 'pagamento') !== false) {
-                $id_botao = 'btn-despesa'; // Mantemos os IDs do CSS/JS
-                $imagem = 'images/despesa.png';
-                $alt_text = 'Novo Pagamento'; // Ajustamos o texto para ficar consistente
-            }
+                if ($id_botao) {
+                    // ===== CÓDIGO ATUALIZADO AQUI =====
+                    // Adicionamos os atributos data-bs-toggle, data-bs-placement e data-bs-title
+                    echo '<button type="button" class="btn-imagem btn btn-light mx-2" 
+                              id="' . $id_botao . '" 
+                              data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '"
+                              data-bs-toggle="tooltip" 
+                              data-bs-placement="top" 
+                              data-bs-title="' . htmlspecialchars($alt_text) . '">'; // <-- AQUI
 
-            // O resto do código funciona como antes
-            if ($id_botao) {
-                echo '<button type="button" class="btn-imagem btn btn-light mx-2" id="' . $id_botao . '" data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '">';
-                echo '    <img src="' . $imagem . '" alt="' . $alt_text . '">';
-                echo '</button>';
+                    echo '    <img src="' . $imagem . '" alt="' . htmlspecialchars($alt_text) . '">';
+                    echo '</button>';
+                }
             }
         }
     }
 }
-
-}
-
-
-
-

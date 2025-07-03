@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const modalEscolha = new bootstrap.Modal(document.getElementById("modalEscolha"));
     const modalFormulario = new bootstrap.Modal(document.getElementById("modalFormulario"));
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
     const btnReceita = document.getElementById("btn-receita");
     const btnDespesa = document.getElementById("btn-despesa");
