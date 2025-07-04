@@ -37,13 +37,68 @@ body {
 #modalEscolha .modal-header {
     /* background-color: purple; Você pode usar 'purple' ou um código hexadecimal roxo, ex: '#800080' */
     color: blak; /* Opcional: Define a cor do texto para branco para melhor contraste */
-    border-bottom: 1px solid purple; /* Opcional: Define a cor da borda inferior para combinar */
+    border-bottom: none; /* Opcional: Define a cor da borda inferior para combinar */
 }
 
 /* Centraliza o texto do título "Novo Lançamento" no header do modal */
 #modalEscolha .modal-header h5.modal-title {
     text-align: center; /* Centraliza o texto horizontalmente */
     width: 100%;        /* Garante que o h5 ocupe toda a largura disponível para centralizar */
+}
+
+/* Torna o conteúdo do modal transparente */
+.modal-content {
+  background-color: transparent !important; /* Torna o fundo transparente */
+  border: none !important; /* Remove a borda padrão do modal */
+  box-shadow: none !important; /* Remove qualquer sombra padrão do modal */
+}
+
+/* Opcional: Ajustar o pano de fundo (overlay) da modal */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Cor e opacidade do fundo escuro */
+  /* Você pode ajustar o 0.5 (50% de opacidade) para um valor menor como 0.2 (20%) */
+  /* ou maior como 0.8 (80%) dependendo do efeito desejado. */
+}
+
+/* Oculta o título "Novo Lançamento" no modal de escolha */
+#modalEscolha .modal-header h5.modal-title {
+  display: none !important; /* Oculta o elemento completamente */
+}
+
+/* Remove o botão "X" de fechar o modal */
+#modalEscolha .btn-close { /* Se for Bootstrap 5+ */
+  display: none !important;
+}
+
+/* Garante que o botão de fechar "X" SUMA APENAS DO MODAL DE FORMULÁRIO */
+#modalFormulario .modal-header .btn-close {
+  display: none !important;
+}
+
+/* Se por acaso o "X" ainda for a classe 'close' em versões mais antigas do Bootstrap: */
+#modalFormulario .modal-header .close {
+  display: none !important;
+}
+
+body {
+  background-color: #4b1c71;
+  background-image: none;
+}
+
+/* Cor roxa para o botão "Acessar" (classe .btn-primary) */
+/* Usamos !important para garantir que sobrescreva os estilos padrão do Bootstrap/SB Admin 2 */
+.btn-primary {
+  background-color: #4b1c71  !important;
+  border-color: #4b1c71 !important;
+}
+
+/* Cores para o hover, focus e active do botão */
+/* Um tom um pouco mais escuro de roxo para melhor feedback visual */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #4b1c71; /* Exemplo de roxo mais escuro para o efeito */
+  border-color: #4b1c71;
 }
 
 /*
@@ -55,7 +110,7 @@ main {
   display: flex; /* Ativa flexbox para organizar o conteúdo interno do main */
   flex-direction: column; /* Empilha os filhos do main (seu wrapper) verticalmente */
   justify-content: flex-start; /* Alinha o conteúdo do main ao TOPO verticalmente */
-  align-items: center;     /* Centraliza o conteúdo do main HORIZONTALMENTE */
+  align-items: center;      /* Centraliza o conteúdo do main HORIZONTALMENTE */
   width: 100%; /* Garante que o main ocupe a largura total disponível */
 }
 
@@ -67,8 +122,8 @@ main {
   display: flex;
   flex-direction: column; /* Organiza o formulário e a tabela um abaixo do outro */
   justify-content: flex-start; /* Alinha o conteúdo do wrapper ao TOPO (se houver espaço extra) */
-  align-items: center;     /* Centraliza o conteúdo do wrapper HORIZONTALMENTE */
-  padding: 20px 0;         /* Adiciona padding vertical para espaçamento nas bordas */
+  align-items: center;      /* Centraliza o conteúdo do wrapper HORIZONTALMENTE */
+  padding: 20px 0;          /* Adiciona padding vertical para espaçamento nas bordas */
   width: 100%; /* Garante que ocupe a largura do pai (main) para alinhar seus filhos */
   max-width: 1200px; /* Limita a largura máxima do conteúdo para melhor leitura em telas grandes */
 }
@@ -184,27 +239,28 @@ form.row {
   font-weight: 500;
 }
 
-/* Estilo para os INPUTS (campos de texto) */
+/* Estilo para os INPUTS e SELECTS (campos de texto e seletores) */
 .form-container .form-control {
   background-color: #f0f0f0; /* Fundo branco levemente acinzentado */
-  color: rgb(0, 0, 0); /* **Amarelo Dourado para o TEXTO DIGITADO** */
+  color: rgb(0, 0, 0); /* **Cor do TEXTO DIGITADO** */
   border: 1px solid rgb(0, 0, 0); /* **Borda Amarelo Dourado** */
   border-radius: 0.3rem;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem; /* <-- AJUSTE AQUI: Tamanho de fonte padrão para os inputs/selects */
 }
 
 /* Estilo para o placeholder dos inputs */
 .form-container .form-control::placeholder {
-  color: rgba(0, 0, 0, 0.7); /* Amarelo Dourado com transparência para o placeholder */
+  color: rgba(0, 0, 0, 0.7); /* Cor do placeholder com transparência */
   opacity: 1; /* Garante visibilidade em todos os navegadores */
 }
 
 /* Estilo para inputs quando estão em foco */
 .form-container .form-control:focus {
   background-color: #fff;
-  border-color: rgb(0, 0, 0); /* Borda Amarelo Dourado no foco (garante consistência) */
+  border-color: rgb(0, 0, 0); /* Borda no foco (garante consistência) */
   box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25); /* Sombra Amarela Dourada */
-  color: rgb(0, 0, 0); /* Texto Amarelo Dourado no foco */
+  color: rgb(0, 0, 0); /* Texto no foco */
 }
 
 /* --- Estilos para os BOTÕES --- */
@@ -291,4 +347,3 @@ form.row {
   max-width: 900px; /* Limite a largura máxima da tabela */
   width: 100%; /* Garante que ocupe a largura disponível até o max-width */
 }
-
