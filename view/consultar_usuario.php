@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div>
-                        <button button type="submit" name="consultar_usuario" class="btn btn-primary"><i class="bi bi-search"></i> Consultar</button>
+                        <button button type="submit" name="consultar_usuario" class="btn"><i class="bi bi-search"></i> Consultar</button>
                     </div>
                 </form>
             </div>
@@ -59,8 +59,8 @@
                                 echo '  <td>' . $valor->nome_usuario . '</td>';
                                 echo '  <td class="text-start">' . $valor->email . '</td>';
                                 echo '  <td>
-                                            <button type="button" class="btn btn-secondary" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_usuario' . $valor->id_cad_usuario . '"><i class="bi bi-pencil"></i></button>
-                                            <button type="button" class="btn btn-secondary" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_usuario' . $valor->id_cad_usuario . '"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_usuario' . $valor->id_cad_usuario . '"><i class="bi bi-pencil"></i></button>
+                                            <button type="button" class="btn" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_usuario' . $valor->id_cad_usuario . '"><i class="bi bi-trash"></i></button>
                                         </td>';
                                 echo '</tr>';
                             }

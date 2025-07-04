@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button button type="submit" name="consultar_plano" class="btn btn-outline-info"><i class="bi bi-search"></i> Consultar</button>
+                        <button button type="submit" name="consultar_plano" class="btn"><i class="bi bi-search"></i> Consultar</button>
                     </div>
                 </form>
             </div>
@@ -57,8 +57,8 @@
                                 echo '  <th scope="row">' . $valor->id_cad_plano . '</th>';
                                 echo '  <td class="text-start">' . $valor->desc_plano . '</td>';
                                 echo '  <td>
-                                            <button type="button" class="btn btn-outline-info" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_plano' . $valor->id_cad_plano . '"><i class="bi bi-pencil"></i></button>
-                                            <button type="button" class="btn btn-outline-info" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_plano' . $valor->id_cad_plano . '"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_plano' . $valor->id_cad_plano . '"><i class="bi bi-pencil"></i></button>
+                                            <button type="button" class="btn" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_plano' . $valor->id_cad_plano . '"><i class="bi bi-trash"></i></button>
                                         </td>';
                                 echo '</tr>';
                             }
