@@ -14,20 +14,19 @@
 </head>
 
 <body>
-    <!-- Modal 1: Escolha Receita ou Despesa -->
     <div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content text-center p-4">
+            <div class="modal-content text-center p-4 form-container modal-lancamento-bg">
                 <div class="modal-header">
                     <h5 class="modal-title">Novo Lançamento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex justify-content-center mt-3">
                         <?php
-                        // Agora o PHP é responsável por criar os botões
+                        // Garanta que $objController->renderizarBotoesTipo();
+                        // gere botões com apenas class="btn" e opcionalmente "btn-imagem"
+                        // SEM CLASSES DE COR DO BOOTSTRAP (ex: btn-light, btn-outline-info)
                         $objController->renderizarBotoesTipo();
                         ?>
                     </div>
@@ -38,12 +37,10 @@
 
     <div class="modal fade" id="modalFormulario" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content p-4">
+            <div class="modal-content p-4 form-container">
                 <div class="modal-header">
                     <h5 class="modal-title" id="form-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row" method="post" action="index.php" id="lancamentoForm">
@@ -81,19 +78,14 @@
                         <div class="form-group col-12 mb-3">
                             <label for="banco" class="form-label">Banco:</label>
                             <select class="form-control" name="id_cad_banco" id="banco">
-                                <?php
-                                $objController->selectBanco();
-                                ?>
+                                <?php $objController->selectBanco(); ?>
                             </select>
                         </div>
 
                         <div class="form-group col-12 mb-3">
                             <label for="cartao" class="form-label">Cartão:</label>
                             <select class="form-control" name="id_cad_cartao" id="cartao">
-                                <?php
-                                // Supondo que $objController já foi instanciado
-                                $objController->selectCartao();
-                                ?>
+                                <?php $objController->selectCartao(); ?>
                             </select>
                         </div>
 
@@ -103,8 +95,8 @@
                         </div>
 
                         <div class="modal-footer justify-content-center border-top pt-3 mt-3">
-                            <button type="reset" form="lancamentoForm" class="btn btn-outline-secondary">Apagar</button>
-                            <button type="submit" name="inserir_lancamento" form="lancamentoForm" class="btn btn-primary">
+                            <button type="reset" form="lancamentoForm" class="btn">Apagar</button>
+                            <button type="submit" name="inserir_lancamento" form="lancamentoForm" class="btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16" style="vertical-align: -0.125em;">
                                     <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z" />
                                 </svg>
@@ -119,7 +111,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="static/script.js"></script>
 
 </body>

@@ -1546,46 +1546,46 @@ class Controller
     }
 
     public function renderizarBotoesTipo()
-    {
-        $objTipo = new Tipo();
-        $tipos   = $objTipo->listarTodos();
+{
+    $objTipo = new Tipo();
+    $tipos   = $objTipo->listarTodos();
 
-        if ($tipos) {
-            foreach ($tipos as $tipo) {
-                $id_botao = '';
-                $imagem   = '';
-                $alt_text = '';
+    if ($tipos) {
+        foreach ($tipos as $tipo) {
+            $id_botao = '';
+            $imagem   = '';
+            $alt_text = '';
 
-                $desc = strtolower($tipo->desc_tipo);
+            $desc = strtolower($tipo->desc_tipo);
 
-                if (strpos($desc, 'recebimento') !== false) {
-                    $id_botao = 'btn-receita';
-                    $imagem   = 'images/receita.png';
-                    // Usaremos este texto para o tooltip
-                    $alt_text = 'Novo Recebimento';
-                } elseif (strpos($desc, 'pagamento') !== false) {
-                    $id_botao = 'btn-despesa';
-                    $imagem   = 'images/despesa.png';
-                    // Usaremos este texto para o tooltip
-                    $alt_text = 'Novo Pagamento';
-                }
+            if (strpos($desc, 'recebimento') !== false) {
+                $id_botao = 'btn-receita';
+                $imagem   = 'images/receita.png';
+                // Usaremos este texto para o tooltip
+                $alt_text = 'Novo Recebimento';
+            } elseif (strpos($desc, 'pagamento') !== false) {
+                $id_botao = 'btn-despesa';
+                $imagem   = 'images/despesa.png';
+                // Usaremos este texto para o tooltip
+                $alt_text = 'Novo Pagamento';
+            }
 
-                if ($id_botao) {
-                    // ===== CÓDIGO ATUALIZADO AQUI =====
-                    // Adicionamos os atributos data-bs-toggle, data-bs-placement e data-bs-title
-                    echo '<button type="button" class="btn-imagem btn btn-light mx-2"
-                              id="' . $id_botao . '"
-                              data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              data-bs-title="' . htmlspecialchars($alt_text) . '">'; // <-- AQUI
+            if ($id_botao) {
+                // ===== CÓDIGO ATUALIZADO AQUI =====
+                // Removida a classe 'btn-light'. Deixamos apenas 'btn'.
+                echo '<button type="button" class="btn btn-imagem mx-2"
+                            id="' . $id_botao . '"
+                            data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-title="' . htmlspecialchars($alt_text) . '">';
 
-                    echo '    <img src="' . $imagem . '" alt="' . htmlspecialchars($alt_text) . '">';
-                    echo '</button>';
-                }
+                echo '     <img src="' . $imagem . '" alt="' . htmlspecialchars($alt_text) . '">';
+                echo '</button>';
             }
         }
     }
+}
 
     public function viewReceita()
     {

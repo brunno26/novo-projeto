@@ -10,6 +10,42 @@ body {
   flex-direction: column; /* Empilha os filhos (header, main, footer) verticalmente */
 }
 
+/* Centraliza todo o conteúdo dentro do corpo do modal */
+.modal-body {
+    display: flex;          /* Transforma o modal-body em um contêiner flex */
+    flex-direction: column; /* Faz com que os filhos (como a div dos botões) se empilhem verticalmente */
+    align-items: center;    /* Centraliza os filhos horizontalmente dentro do modal-body */
+}
+
+/* Força o aumento da largura máxima do modal de escolha */
+#modalEscolha .modal-dialog {
+    max-width: 700px !important; /* Altere este valor para a largura que você deseja */
+}
+
+/* Opcional: Se o modal Formulario também não estiver aumentando, aplique a ele */
+#modalFormulario .modal-dialog {
+    max-width: 900px !important; /* Altere este valor para a largura que você deseja */
+}
+
+.modal-lancamento-bg {
+    background-color: #f5f5d0; /* A nova cor de fundo */
+    background-image: none; /* Garante que qualquer gradiente anterior seja removido */
+    /* Se precisar de especificidade extra, pode usar: */
+    /* background-color: #e6ccef !important; */
+}
+
+#modalEscolha .modal-header {
+    /* background-color: purple; Você pode usar 'purple' ou um código hexadecimal roxo, ex: '#800080' */
+    color: blak; /* Opcional: Define a cor do texto para branco para melhor contraste */
+    border-bottom: 1px solid purple; /* Opcional: Define a cor da borda inferior para combinar */
+}
+
+/* Centraliza o texto do título "Novo Lançamento" no header do modal */
+#modalEscolha .modal-header h5.modal-title {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    width: 100%;        /* Garante que o h5 ocupe toda a largura disponível para centralizar */
+}
+
 /*
 * O elemento main ocupa todo o espaço vertical disponível entre o header e o footer.
 * Ele também se torna um contêiner flex para centralizar o seu conteúdo (.main-content-wrapper).
@@ -151,24 +187,24 @@ form.row {
 /* Estilo para os INPUTS (campos de texto) */
 .form-container .form-control {
   background-color: #f0f0f0; /* Fundo branco levemente acinzentado */
-  color: rgb(255, 215, 0); /* **Amarelo Dourado para o TEXTO DIGITADO** */
-  border: 1px solid rgb(255, 215, 0); /* **Borda Amarelo Dourado** */
+  color: rgb(0, 0, 0); /* **Amarelo Dourado para o TEXTO DIGITADO** */
+  border: 1px solid rgb(0, 0, 0); /* **Borda Amarelo Dourado** */
   border-radius: 0.3rem;
   padding: 0.75rem 1rem;
 }
 
 /* Estilo para o placeholder dos inputs */
 .form-container .form-control::placeholder {
-  color: rgba(255, 215, 0, 0.7); /* Amarelo Dourado com transparência para o placeholder */
+  color: rgba(0, 0, 0, 0.7); /* Amarelo Dourado com transparência para o placeholder */
   opacity: 1; /* Garante visibilidade em todos os navegadores */
 }
 
 /* Estilo para inputs quando estão em foco */
 .form-container .form-control:focus {
   background-color: #fff;
-  border-color: rgb(255, 215, 0); /* Borda Amarelo Dourado no foco (garante consistência) */
+  border-color: rgb(0, 0, 0); /* Borda Amarelo Dourado no foco (garante consistência) */
   box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25); /* Sombra Amarela Dourada */
-  color: rgb(255, 215, 0); /* Texto Amarelo Dourado no foco */
+  color: rgb(0, 0, 0); /* Texto Amarelo Dourado no foco */
 }
 
 /* --- Estilos para os BOTÕES --- */
@@ -255,3 +291,4 @@ form.row {
   max-width: 900px; /* Limite a largura máxima da tabela */
   width: 100%; /* Garante que ocupe a largura disponível até o max-width */
 }
+
