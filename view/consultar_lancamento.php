@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button button type="submit" name="consultar_lancamento" class="btn btn-outline-info"><i class="bi bi-search"></i> Consultar</button>
+                        <button button type="submit" name="consultar_lancamento" class="btn"><i class="bi bi-search"></i> Consultar</button>
                     </div>
                 </form>
             </div>
@@ -73,8 +73,8 @@
                                 echo '  <td class="text-start"> ' . $valor->nome_cartao . '</td>';
                                 echo '  <td>' . $valor->data_rec_pag . '</td>';
                                 echo '  <td>
-                                            <button type="button" class="btn btn-outline-info" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_lancamento' . $valor->id_lanc . '"><i class="bi bi-pencil"></i></button>
-                                            <button type="button" class="btn btn-outline-info" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_lancamento' . $valor->id_lanc . '"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_lancamento' . $valor->id_lanc . '"><i class="bi bi-pencil"></i></button>
+                                            <button type="button" class="btn" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_lancamento' . $valor->id_lanc . '"><i class="bi bi-trash"></i></button>
                                         </td>';
                                 echo '</tr>';
                             }

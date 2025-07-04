@@ -22,54 +22,69 @@
             <!-- place navbar here -->
         </header>
         <main>
-            <div class="container d-flex justify-content-center mt-1">
-                <form class="row p-3 m-3 border border-info rounded shadow-lg" method="post" action="index.php">
-                    <div class="container text-center pb-2">
-                        <h6>CONSULTA DE BANCOS</h6>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label for="nome_banco" class="form-label">Nome banco:</label>
-                                <input type="text" name="nome_banco" class="form-control" id="nome_banco" placeholder="Digite o nome do banco...">
-                            </div>
+        <div class="main-content-wrapper">
+
+        <div class="container d-flex justify-content-center align-items-center form-container">
+        <form class="row p-3 m-3 border rounded shadow-lg" method="post" action="index.php">
+                <div class="container text-center pb-2">
+                    <h6>CONSULTA DE BANCOS</h6>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="nome_banco" class="form-label">Nome banco:</label>
+                            <input type="text" name="nome_banco" class="form-control" id="nome_banco" placeholder="Digite o nome do banco...">
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <button button type="submit" name="consultar_banco" class="btn btn-outline-info"><i class="bi bi-search"></i> Consultar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="container table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead class="table-info">
-                        <tr class="text-center">
-                            <th>CÓDIGO</th>
-                            <th>NOME DO BANCO</th>
-                            <th>NÚMERO DA AGÊNCIA</th>
-                            <th>NÚMERO DA CONTA</th>
-                            <th>AÇÃO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            //mostrar os resultados
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" name="consultar_banco" class="btn"><i class="bi bi-search"></i> Consultar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="container table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-info">
+                    <tr class="text-center">
+                        <th>CÓDIGO</th>
+                        <th>NOME DO BANCO</th>
+                        <th>NÚMERO DA AGÊNCIA</th>
+                        <th>NÚMERO DA CONTA</th>
+                        <th>AÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        //mostrar os resultados
+                        // Certifique-se de que a variável $resultado esteja definida e seja um array/objeto iterável
+                        // Exemplo de dados de teste se você não tiver o PHP configurado
+                        /*
+                        $resultado = [
+                            (object)['id_cad_banco' => 1, 'nome_banco' => 'Banco do Brasil', 'num_agencia' => '0001', 'num_conta' => '12345-6'],
+                            (object)['id_cad_banco' => 2, 'nome_banco' => 'Itaú Unibanco', 'num_agencia' => '1234', 'num_conta' => '78901-2'],
+                        ];
+                        */
+                        if (isset($resultado) && is_array($resultado)) {
                             foreach ($resultado as $key => $valor) {
                                 echo '<tr class="text-center">';
-                                echo '  <th scope="row">' . $valor->id_cad_banco . '</th>';
-                                echo '  <td class="text-start">' . $valor->nome_banco . '</td>';
-                                echo '  <td>' . $valor->num_agencia . '</td>';
-                                echo '  <td>' . $valor->num_conta . '</td>';
+                                echo '  <th scope="row">' . htmlspecialchars($valor->id_cad_banco) . '</th>';
+                                echo '  <td class="text-start">' . htmlspecialchars($valor->nome_banco) . '</td>';
+                                echo '  <td>' . htmlspecialchars($valor->num_agencia) . '</td>';
+                                echo '  <td>' . htmlspecialchars($valor->num_conta) . '</td>';
                                 echo '  <td>
-                                            <button type="button" class="btn btn-outline-info" title = "Alterar" data-bs-toggle="modal" data-bs-target="#alterar_banco' . $valor->id_cad_banco . '"><i class="bi bi-pencil"></i></button>
-                                            <button type="button" class="btn btn-outline-info" title = "Excluir" data-bs-toggle="modal" data-bs-target="#excluir_banco' . $valor->id_cad_banco . '"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn" title="Alterar" data-bs-toggle="modal" data-bs-target="#alterar_banco' . htmlspecialchars($valor->id_cad_banco) . '"><i class="bi bi-pencil"></i></button>
+                                            <button type="button" class="btn" title="Excluir" data-bs-toggle="modal" data-bs-target="#excluir_banco' . htmlspecialchars($valor->id_cad_banco) . '"><i class="bi bi-trash"></i></button>
                                         </td>';
                                 echo '</tr>';
                             }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
+                        } else {
+                            echo '<tr><td colspan="5" class="text-center">Nenhum resultado encontrado.</td></tr>';
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
             <?php
                 //criar os Modais de excluir e alterar
                 foreach ($resultado as $key => $valor) {
