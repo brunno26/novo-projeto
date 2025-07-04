@@ -230,7 +230,7 @@ class Controller
         echo '      </div>';
         echo '      <div class="modal-body">';
         echo '        <div class="alert alert-warning" role="alert">';
-        echo            $mensagem;
+        echo $mensagem;
         echo '        </div>';
         echo '      </div>';
         echo '      <div class="modal-footer">';
@@ -260,7 +260,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objBanco->consultarBanco(null);
             //incluir a view
             include_once 'view/consultar_banco.php';
@@ -315,7 +315,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objBanco->consultarBanco(null);
             //incluir a view
             include_once 'view/consultar_banco.php';
@@ -366,7 +366,7 @@ class Controller
         // Instanciar a classe Banco
         $objBanco = new Banco();
 
-        // Invocar o método para buscar os dados
+                                                      // Invocar o método para buscar os dados
         $resultado = $objBanco->consultarBanco(null); // Não precisa passar null aqui
 
         // Gerar a opção padrão (placeholder)
@@ -382,7 +382,7 @@ class Controller
 
                 // Impressão segura (com htmlspecialchars)
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($banco->id_cad_banco) . '">'
-                    . htmlspecialchars($banco->nome_banco)
+                . htmlspecialchars($banco->nome_banco)
                     . '</option>';
             }
         }
@@ -510,7 +510,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objBandeira->consultarBandeira(null);
             //incluir a view
             include_once 'view/consultar_bandeira.php';
@@ -639,7 +639,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objCartao->consultarCartao(null);
             //incluir a view
             include_once 'view/consultar_cartao.php';
@@ -694,7 +694,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objCartao->consultarCartao(null);
             //incluir a view
             include_once 'view/consultar_cartao.php';
@@ -743,7 +743,7 @@ class Controller
     {
         // Instanciar a classe Cartao
         $objCartao = new Cartao();
-        // Invocar o método para consultar os dados
+                                                        // Invocar o método para consultar os dados
         $resultado = $objCartao->consultarCartao(null); // O 'null' não é necessário se o método não o utiliza
 
         // Gerar a opção padrão (placeholder)
@@ -759,7 +759,7 @@ class Controller
 
                 // 2. Impressão segura (com htmlspecialchars) e limpa
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($cartao->id_cad_cartao) . '">'
-                    . htmlspecialchars($cartao->nome_cartao)
+                . htmlspecialchars($cartao->nome_cartao)
                     . '</option>';
             }
         }
@@ -886,7 +886,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objForma->consultarForma(null);
             //incluir a view
             include_once 'view/consultar_forma.php';
@@ -934,7 +934,7 @@ class Controller
     //select de forma
     public function selectForma($id_cad_forma_selecionada = null)
     {
-        $objForma = new Forma(); // Precisaremos criar a classe Forma
+        $objForma  = new Forma(); // Precisaremos criar a classe Forma
         $resultado = $objForma->consultarForma(null);
 
         echo '<option value="" disabled selected>Selecione a forma</option>';
@@ -944,7 +944,7 @@ class Controller
                 // A sua tabela tb_cad_forma tem as colunas id_cad_forma e desc_forma
                 $selecionado = ($forma->id_cad_forma == $id_cad_forma_selecionada) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($forma->id_cad_forma) . '">'
-                    . htmlspecialchars($forma->desc_forma)
+                . htmlspecialchars($forma->desc_forma)
                     . '</option>';
             }
         }
@@ -1013,7 +1013,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objLancamento->consultarLancamento(null);
             //incluir a view
             include_once 'view/consultar_lancamento.php';
@@ -1068,7 +1068,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objLancamento->consultarLancamento(null);
             //incluir a view
             include_once 'view/consultar_lancamento.php';
@@ -1242,7 +1242,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objPlano->consultarPlano(null);
             //incluir a view
             include_once 'view/consultar_plano.php';
@@ -1290,7 +1290,7 @@ class Controller
     //select de plano
     public function selectPlano($id_cad_plano_selecionado = null)
     {
-        $objPlano = new Plano(); // Precisaremos criar a classe Plano
+        $objPlano  = new Plano(); // Precisaremos criar a classe Plano
         $resultado = $objPlano->consultarPlano(null);
 
         echo '<option value="" disabled selected>Selecione o plano de contas</option>';
@@ -1300,12 +1300,11 @@ class Controller
                 // A sua tabela tb_cad_plano tem as colunas id_cad_plano e desc_plano
                 $selecionado = ($plano->id_cad_plano == $id_cad_plano_selecionado) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($plano->id_cad_plano) . '">'
-                    . htmlspecialchars($plano->desc_plano)
+                . htmlspecialchars($plano->desc_plano)
                     . '</option>';
             }
         }
     }
-
 
     public function modal_alterar_plano($id_cad_plano, $desc_plano)
     {
@@ -1363,7 +1362,7 @@ class Controller
     //select de tipo
     public function selectTipo($id_cad_tipo_selecionado = null)
     {
-        $objTipo = new Tipo(); // Precisaremos criar a classe Tipo
+        $objTipo   = new Tipo(); // Precisaremos criar a classe Tipo
         $resultado = $objTipo->consultarTipo(null);
 
         echo '<option value="" disabled selected>Selecione o tipo</option>';
@@ -1373,7 +1372,7 @@ class Controller
                 // A sua tabela tb_cad_tipo tem as colunas id_cad_tipo e desc_tipo
                 $selecionado = ($tipo->id_cad_tipo == $id_cad_tipo_selecionado) ? 'selected' : '';
                 echo '<option ' . $selecionado . ' value="' . htmlspecialchars($tipo->id_cad_tipo) . '">'
-                    . htmlspecialchars($tipo->desc_tipo)
+                . htmlspecialchars($tipo->desc_tipo)
                     . '</option>';
             }
         }
@@ -1391,7 +1390,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objUsuario->consultarUsuario(null);
             //incluir a view
             include_once 'view/consultar_usuario.php';
@@ -1446,7 +1445,7 @@ class Controller
             //iniciar sessao
             session_start();
             //inserir menu
-            $menu = $this->menu();
+            $menu      = $this->menu();
             $resultado = $objUsuario->consultarUsuario(null);
             //incluir a view
             include_once 'view/consultar_usuario.php';
@@ -1549,24 +1548,24 @@ class Controller
     public function renderizarBotoesTipo()
     {
         $objTipo = new Tipo();
-        $tipos = $objTipo->listarTodos();
+        $tipos   = $objTipo->listarTodos();
 
         if ($tipos) {
             foreach ($tipos as $tipo) {
                 $id_botao = '';
-                $imagem = '';
+                $imagem   = '';
                 $alt_text = '';
 
                 $desc = strtolower($tipo->desc_tipo);
 
                 if (strpos($desc, 'recebimento') !== false) {
                     $id_botao = 'btn-receita';
-                    $imagem = 'images/receita.png';
+                    $imagem   = 'images/receita.png';
                     // Usaremos este texto para o tooltip
                     $alt_text = 'Novo Recebimento';
                 } elseif (strpos($desc, 'pagamento') !== false) {
                     $id_botao = 'btn-despesa';
-                    $imagem = 'images/despesa.png';
+                    $imagem   = 'images/despesa.png';
                     // Usaremos este texto para o tooltip
                     $alt_text = 'Novo Pagamento';
                 }
@@ -1574,11 +1573,11 @@ class Controller
                 if ($id_botao) {
                     // ===== CÓDIGO ATUALIZADO AQUI =====
                     // Adicionamos os atributos data-bs-toggle, data-bs-placement e data-bs-title
-                    echo '<button type="button" class="btn-imagem btn btn-light mx-2" 
-                              id="' . $id_botao . '" 
+                    echo '<button type="button" class="btn-imagem btn btn-light mx-2"
+                              id="' . $id_botao . '"
                               data-tipo-id="' . htmlspecialchars($tipo->id_cad_tipo) . '"
-                              data-bs-toggle="tooltip" 
-                              data-bs-placement="top" 
+                              data-bs-toggle="tooltip"
+                              data-bs-placement="top"
                               data-bs-title="' . htmlspecialchars($alt_text) . '">'; // <-- AQUI
 
                     echo '    <img src="' . $imagem . '" alt="' . htmlspecialchars($alt_text) . '">';
@@ -1586,5 +1585,44 @@ class Controller
                 }
             }
         }
+    }
+
+    public function viewReceita()
+    {
+        //instanciar a classe Saldo
+        $objLancamento = new Lancamento();
+        //invocar o método
+        $resultado = $objLancamento->viewReceita();
+        foreach ($resultado as $total_recebimento) {
+            $recebimentoMes = 'Receitas Mês Atual <br><br> R$ ' . number_format($total_recebimento->total_recebimento, 2, ',', '.');
+        }
+
+        return $recebimentoMes;
+    }
+
+        public function viewDespesa()
+    {
+        //instanciar a classe Saldo
+        $objLancamento = new Lancamento();
+        //invocar o método
+        $resultado = $objLancamento->viewDespesa();
+        foreach ($resultado as $total_pagamento) {
+            $pagamentoMes = 'Despesas Mês Atual <br><br> R$ ' . number_format($total_pagamento->total_pagamento, 2, ',', '.');
+        }
+
+        return $pagamentoMes;
+    }
+
+    public function viewSaldo()
+    {
+        //instanciar a classe Saldo
+        $objLancamento = new Lancamento();
+        //invocar o método
+        $resultado = $objLancamento->viewSaldo();
+        foreach ($resultado as $saldo) {
+            $saldoMes = 'Saldo Mês Atual <br><br> R$ ' . number_format($saldo->saldo, 2, ',', '.');
+        }
+
+        return $saldoMes;
     }
 }
