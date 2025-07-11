@@ -342,7 +342,7 @@ if (isset($_POST['excluir_plano'])) {
 //==============================TIPO==============================
 
 //consultar plano
-if (isset($_POST['consultar_plano'])) {
+if (isset($_POST['consultar_tipo'])) {
     //instânciar controller
     $objController = new Controller();
     //dados

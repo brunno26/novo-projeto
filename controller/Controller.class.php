@@ -1389,11 +1389,11 @@ class Controller
         if ($objUsuario->inserirUsuario($nome_usuario, $email, $senha) == true) {
             //iniciar sessao
             session_start();
-            //inserir menu
-            $menu      = $this->menu();
             $resultado = $objUsuario->consultarUsuario(null);
+
+            $this->redirecionar('login.php');
             //incluir a view
-            include_once 'view/consultar_usuario.php';
+            // include_once 'view/consultar_usuario.php';
             //mostrar mensagem
             $this->mostrarMensagem("Usuário inserido com sucesso!");
         } else {
@@ -1402,7 +1402,7 @@ class Controller
             //inserir menu
             $menu = $this->menu();
             //incluir a view
-            include_once 'view/consultar_usuario.php';
+            // include_once 'view/consultar_usuario.php';
             //mostrar mensagem
             $this->mostrarMensagem("Erro ao inserir Usuário!");
         }

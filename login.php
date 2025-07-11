@@ -43,6 +43,10 @@
                 </form>
                 <hr>
                 <div class="text-center">
+                  <a class="small" href="inserir_usuario.php">Cadastre-se?</a>
+                </div>
+                <hr>
+                <div class="text-center">
                   <a class="small" href="recuperar.php">Esqueceu a senha?</a>
                 </div>
               </div>
