@@ -1391,9 +1391,9 @@ class Controller
             session_start();
             $resultado = $objUsuario->consultarUsuario(null);
 
-            $this->redirecionar('login.php');
+            // $this->redirecionar('login.php');
             //incluir a view
-            // include_once 'view/consultar_usuario.php';
+            include_once 'login.php';
             //mostrar mensagem
             $this->mostrarMensagem("Usuário inserido com sucesso!");
         } else {
@@ -1402,7 +1402,7 @@ class Controller
             //inserir menu
             $menu = $this->menu();
             //incluir a view
-            // include_once 'view/consultar_usuario.php';
+            include_once 'login.php';
             //mostrar mensagem
             $this->mostrarMensagem("Erro ao inserir Usuário!");
         }
