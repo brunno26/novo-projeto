@@ -67,9 +67,9 @@ class Controller
             //definir o servidor
             define('HOST', 'smtp.gmail.com');
             define('PORT', '587');
-            define('USERNAME', 'senacdf.operadormicro@gmail.com');
+            define('USERNAME', 'bruno.laurentino.adm@gmail.com');
             define('PASSWORD', 'uetz ezsn jjuy klyo');
-            define('FROM', 'senacdf.operadormicro@gmail.com');
+            define('FROM', 'bruno.laurentino.adm@gmail.com');
 
             //dados do envio
             $mail = new PHPMailer();
@@ -93,14 +93,14 @@ class Controller
 
             //eviar email
             if (! $mail->Send()) {
-                include_once 'recuperar.php';
+                include_once 'recuperar_senhahp';
                 $this->mostrarMensagem("Erro ao enviar e-mail! $mail->ErrorInfo");
             } else {
                 include_once 'login.php';
                 $this->mostrarMensagem("A nova senha foi enviada para o e-mail informado!");
             }
         } else {
-            include_once 'recuperar.php';
+            include_once 'recuperar_senha.php';
             $this->mostrarMensagem("E-mail não cadastrado!");
         }
     }

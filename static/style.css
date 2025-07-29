@@ -5,10 +5,49 @@ body {
   padding: 0;
 }
 
+/* --- Estilos da Navbar (ADICIONADO/MODIFICADO) --- */
 .navbar {
-  margin-left: 225px;
-  width: calc(100% - 225px);
+  margin-left: 224px; /* Mantém o espaço para a sidebar */
+  width: calc(100% - 224px); /* Ajusta a largura para não sobrepor a sidebar */
+  padding: 15px;
+  
+  /* Cor e gradiente da Sidebar aplicados à Navbar */
+  background-color: #4b1c71; /* Cor de fallback, o mesmo roxo escuro da sidebar */
+  background-image: linear-gradient(180deg, #4b1c71 10%, #7f4ca5 100%); /* O mesmo gradiente da sidebar */
+  background-size: cover; /* Garante que o gradiente cubra a área da navbar */
+
+  /* Para garantir que o texto da navbar fique visível sobre o fundo escuro/roxo */
+  /* Isso geralmente é feito no HTML com classes como text-white, mas se precisar forçar via CSS: */
+  /* color: #ffd700; /* Cor do texto padrão da navbar para amarelo dourado, se desejar */
 }
+
+/* Para ajustar o texto da marca (Navbar) e itens dentro da navbar */
+.navbar-brand,
+.navbar .nav-link { /* Adicione .navbar .nav-link se tiver links na navbar */
+    color: #ffd700 !important; /* Força o texto da marca e links a serem amarelo dourado */
+}
+
+/* Estilo para a barra de pesquisa dentro da navbar para combinar */
+.navbar .form-control {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo um pouco transparente para o input */
+    border: 1px solid rgba(255, 215, 0, 0.5); /* Borda amarela dourada levemente transparente */
+    color: #ffd700; /* Cor do texto digitado */
+}
+
+.navbar .form-control::placeholder {
+    color: rgba(255, 215, 0, 0.7); /* Cor do placeholder amarelo dourado com transparência */
+}
+
+.navbar .btn-outline-success { /* Seu botão de busca atual */
+    color: #ffd700; /* Texto do botão amarelo dourado */
+    border-color: #ffd700; /* Borda do botão amarelo dourado */
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #ffd700; /* Fundo amarelo dourado no hover */
+    color: #4b1c71; /* Texto roxo escuro no hover para contraste */
+}
+
 
 body {
   background-color: #f8f9fa; /* Um cinza claro para o fundo da página */
@@ -87,10 +126,13 @@ body {
   display: none !important;
 }
 
+/* Este 'body' aqui estava sobrescrevendo o primeiro, ajustado para ser mais específico se necessário */
+/* Para a cor de fundo da página de login/cadastro (se for o caso) */
 body {
-  background-color: #4b1c71;
+  background-color: #4b1c71; /* Mantido se for para a página de login/cadastro específica */
   background-image: none;
 }
+
 
 /* Cor roxa para o botão "Acessar" (classe .btn-primary) */
 /* Usamos !important para garantir que sobrescreva os estilos padrão do Bootstrap/SB Admin 2 */
