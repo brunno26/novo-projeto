@@ -1,7 +1,13 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.navbar {
+  margin-left: 225px;
+  width: calc(100% - 225px);
 }
 
 body {
@@ -12,38 +18,38 @@ body {
 
 /* Centraliza todo o conteúdo dentro do corpo do modal */
 .modal-body {
-    display: flex;          /* Transforma o modal-body em um contêiner flex */
-    flex-direction: column; /* Faz com que os filhos (como a div dos botões) se empilhem verticalmente */
-    align-items: center;    /* Centraliza os filhos horizontalmente dentro do modal-body */
+  display: flex; /* Transforma o modal-body em um contêiner flex */
+  flex-direction: column; /* Faz com que os filhos (como a div dos botões) se empilhem verticalmente */
+  align-items: center; /* Centraliza os filhos horizontalmente dentro do modal-body */
 }
 
 /* Força o aumento da largura máxima do modal de escolha */
 #modalEscolha .modal-dialog {
-    max-width: 700px !important; /* Altere este valor para a largura que você deseja */
+  max-width: 700px !important; /* Altere este valor para a largura que você deseja */
 }
 
 /* Opcional: Se o modal Formulario também não estiver aumentando, aplique a ele */
 #modalFormulario .modal-dialog {
-    max-width: 900px !important; /* Altere este valor para a largura que você deseja */
+  max-width: 900px !important; /* Altere este valor para a largura que você deseja */
 }
 
 .modal-lancamento-bg {
-    background-color: #f5f5d0; /* A nova cor de fundo */
-    background-image: none; /* Garante que qualquer gradiente anterior seja removido */
-    /* Se precisar de especificidade extra, pode usar: */
-    /* background-color: #e6ccef !important; */
+  background-color: #f5f5d0; /* A nova cor de fundo */
+  background-image: none; /* Garante que qualquer gradiente anterior seja removido */
+  /* Se precisar de especificidade extra, pode usar: */
+  /* background-color: #e6ccef !important; */
 }
 
 #modalEscolha .modal-header {
-    /* background-color: purple; Você pode usar 'purple' ou um código hexadecimal roxo, ex: '#800080' */
-    color: blak; /* Opcional: Define a cor do texto para branco para melhor contraste */
-    border-bottom: none; /* Opcional: Define a cor da borda inferior para combinar */
+  /* background-color: purple; Você pode usar 'purple' ou um código hexadecimal roxo, ex: '#800080' */
+  color: blak; /* Opcional: Define a cor do texto para branco para melhor contraste */
+  border-bottom: none; /* Opcional: Define a cor da borda inferior para combinar */
 }
 
 /* Centraliza o texto do título "Novo Lançamento" no header do modal */
 #modalEscolha .modal-header h5.modal-title {
-    text-align: center; /* Centraliza o texto horizontalmente */
-    width: 100%;        /* Garante que o h5 ocupe toda a largura disponível para centralizar */
+  text-align: center; /* Centraliza o texto horizontalmente */
+  width: 100%; /* Garante que o h5 ocupe toda a largura disponível para centralizar */
 }
 
 /* Torna o conteúdo do modal transparente */
@@ -66,7 +72,8 @@ body {
 }
 
 /* Remove o botão "X" de fechar o modal */
-#modalEscolha .btn-close { /* Se for Bootstrap 5+ */
+#modalEscolha .btn-close {
+  /* Se for Bootstrap 5+ */
   display: none !important;
 }
 
@@ -88,7 +95,7 @@ body {
 /* Cor roxa para o botão "Acessar" (classe .btn-primary) */
 /* Usamos !important para garantir que sobrescreva os estilos padrão do Bootstrap/SB Admin 2 */
 .btn-primary {
-  background-color: #4b1c71  !important;
+  background-color: #4b1c71 !important;
   border-color: #4b1c71 !important;
 }
 
@@ -102,32 +109,31 @@ body {
 }
 
 /*
-* O elemento main ocupa todo o espaço vertical disponível entre o header e o footer.
-* Ele também se torna um contêiner flex para centralizar o seu conteúdo (.main-content-wrapper).
-*/
+ * O elemento main ocupa todo o espaço vertical disponível entre o header e o footer.
+ * Ele também se torna um contêiner flex para centralizar o seu conteúdo (.main-content-wrapper).
+ */
 main {
   flex-grow: 1; /* Faz o main se expandir e ocupar o espaço restante */
   display: flex; /* Ativa flexbox para organizar o conteúdo interno do main */
   flex-direction: column; /* Empilha os filhos do main (seu wrapper) verticalmente */
-  justify-content: flex-start; /* Alinha o conteúdo do main ao TOPO verticalmente */
-  align-items: center;      /* Centraliza o conteúdo do main HORIZONTALMENTE */
+  justify-content: center; /* ALTERADO: Centraliza o conteúdo do main VERTICALMENTE */
+  align-items: center; /* Centraliza o conteúdo do main HORIZONTALMENTE */
   width: 100%; /* Garante que o main ocupe a largura total disponível */
 }
 
 /*
-* Contêiner principal que envolve o formulário e a tabela.
-* Ele é centralizado pelo 'main' e organiza seu próprio conteúdo em coluna.
-*/
+ * Contêiner principal que envolve o formulário e a tabela.
+ * Ele é centralizado pelo 'main' e organiza seu próprio conteúdo em coluna.
+ */
 .main-content-wrapper {
   display: flex;
   flex-direction: column; /* Organiza o formulário e a tabela um abaixo do outro */
   justify-content: flex-start; /* Alinha o conteúdo do wrapper ao TOPO (se houver espaço extra) */
-  align-items: center;      /* Centraliza o conteúdo do wrapper HORIZONTALMENTE */
-  padding: 20px 0;          /* Adiciona padding vertical para espaçamento nas bordas */
+  align-items: center; /* Centraliza o conteúdo do wrapper HORIZONTALMENTE */
+  padding: 20px 0; /* Adiciona padding vertical para espaçamento nas bordas */
   width: 100%; /* Garante que ocupe a largura do pai (main) para alinhar seus filhos */
   max-width: 1200px; /* Limita a largura máxima do conteúdo para melhor leitura em telas grandes */
 }
-
 
 /* --- Estilos da Sidebar (Mantidos da sua configuração anterior) --- */
 
@@ -142,7 +148,7 @@ main {
 }
 
 .sidebar .nav-item .nav-link {
-  color: #FFD700; /* Amarelo Dourado Fixo */
+  color: #ffd700; /* Amarelo Dourado Fixo */
   transition: background-color 0.2s ease-in-out;
   border-radius: 0.3rem;
   padding: 0.75rem 1rem;
@@ -155,7 +161,7 @@ main {
 }
 
 .sidebar .collapse-item {
-  color: #FFD700; /* Amarelo Dourado Fixo */
+  color: #ffd700; /* Amarelo Dourado Fixo */
   transition: background-color 0.2s ease-in-out;
   border-radius: 0.3rem;
   padding: 0.5rem 1.5rem;
@@ -164,20 +170,19 @@ main {
 }
 
 .sidebar-brand .sidebar-brand-text {
-  color: #FFD700;
+  color: #ffd700;
 }
 
 .sidebar-brand-icon .fas.fa-coins {
-  color: #FFD700;
+  color: #ffd700;
 }
 
 .sidebar .nav-item .nav-link:hover,
 .sidebar .collapse-item:hover {
   background-color: #7f4ca5; /* Cor do fundo no hover (a cor mais clara do seu gradiente) */
-  color: #FFD700; /* Mantém a cor da letra dourada no hover */
+  color: #ffd700; /* Mantém a cor da letra dourada no hover */
   cursor: pointer;
 }
-
 
 /* --- Estilos Específicos do Formulário --- */
 
@@ -214,8 +219,8 @@ form.row {
 
   /* Dimensões e espaçamento */
   max-width: 600px; /* Limita a largura máxima do formulário */
-  width: 100%;      /* Garante responsividade, ocupando a largura disponível */
-  padding: 20px;    /* Padding interno de 20px em todos os lados */
+  width: 100%; /* Garante responsividade, ocupando a largura disponível */
+  padding: 20px; /* Padding interno de 20px em todos os lados */
   box-sizing: border-box; /* Garante que padding/border não aumentem as dimensões */
 
   /* Flexbox para organização interna dos campos (vem da classe Bootstrap 'row') */
@@ -274,7 +279,8 @@ form.row {
   padding: 0.6rem 1.2rem; /* Ajuste o padding para o tamanho desejado */
   font-weight: bold;
   cursor: pointer; /* Adiciona cursor de mão ao passar por cima */
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transições suaves */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out; /* Transições suaves */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil */
   margin: 0 5px;
 }
@@ -288,37 +294,38 @@ form.row {
 
 /* Ajusta os botões de ação (Alterar/Excluir) dentro da tabela */
 .container.table-responsive .btn {
-    background-color: transparent; /* Fundo transparente */
-    color: rgb(255, 215, 0); /* Texto Amarelo Dourado */
-    border: 1px solid rgb(255, 215, 0); /* Borda Amarelo Dourado */
-    border-radius: 0.3rem; /* Bordas levemente arredondadas, talvez um pouco menos que o botão de consulta */
-    padding: 0.3rem 0.6rem; /* Padding menor para botões de ícone */
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
-    margin: 0 2px; /* Margem menor entre os botões da tabela */
-    display: inline-flex; /* Para alinhar o ícone e o texto (se houver) */
-    align-items: center;
-    justify-content: center;
+  background-color: transparent; /* Fundo transparente */
+  color: rgb(255, 215, 0); /* Texto Amarelo Dourado */
+  border: 1px solid rgb(255, 215, 0); /* Borda Amarelo Dourado */
+  border-radius: 0.3rem; /* Bordas levemente arredondadas, talvez um pouco menos que o botão de consulta */
+  padding: 0.3rem 0.6rem; /* Padding menor para botões de ícone */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+  margin: 0 2px; /* Margem menor entre os botões da tabela */
+  display: inline-flex; /* Para alinhar o ícone e o texto (se houver) */
+  align-items: center;
+  justify-content: center;
 }
 
 /* Efeito hover para os botões de ação na tabela */
 .container.table-responsive .btn:hover {
-    background-color: rgba(255, 215, 0, 0.15); /* Destaque dourado no hover */
-    color: rgb(255, 215, 0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 215, 0, 0.15); /* Destaque dourado no hover */
+  color: rgb(255, 215, 0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Ajuste do ícone dentro dos botões (geral, se quiser que aplique a todos os .btn i) */
-.btn i { /* Seletor mais geral para ícones em botões */
-    margin-right: 0.5rem;
+.btn i {
+  /* Seletor mais geral para ícones em botões */
+  margin-right: 0.5rem;
 }
 /* Sobrescreve a margem do ícone especificamente para os botões da tabela */
 .container.table-responsive .btn i {
-    margin-right: 0; /* Remove a margem do ícone nos botões da tabela, já que são apenas ícones */
+  margin-right: 0; /* Remove a margem do ícone nos botões da tabela, já que são apenas ícones */
 }
-
 
 /* --- Estilos para a Tabela --- */
 
@@ -331,7 +338,7 @@ form.row {
 
 /* Estilos para as células de cabeçalho da tabela (<th>) */
 .table thead th {
-  color: #FFD700; /* Amarelo Dourado para o texto do cabeçalho */
+  color: #ffd700; /* Amarelo Dourado para o texto do cabeçalho */
   padding: 0.75rem;
   vertical-align: middle;
   text-align: center;
