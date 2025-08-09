@@ -67,9 +67,9 @@ class Controller
             //definir o servidor
             define('HOST', 'smtp.gmail.com');
             define('PORT', '587');
-            define('USERNAME', 'bruno.laurentino.adm@gmail.com');
+            define('USERNAME', 'senacdf.operadormicro@gmail.com');
             define('PASSWORD', 'uetz ezsn jjuy klyo');
-            define('FROM', 'bruno.laurentino.adm@gmail.com');
+            define('FROM', 'senacdf.operadormicro@gmail.com');
 
             //dados do envio
             $mail = new PHPMailer();
@@ -93,14 +93,14 @@ class Controller
 
             //eviar email
             if (! $mail->Send()) {
-                include_once 'recuperar_senhahp';
+                include_once 'recuperar.php';
                 $this->mostrarMensagem("Erro ao enviar e-mail! $mail->ErrorInfo");
             } else {
                 include_once 'login.php';
                 $this->mostrarMensagem("A nova senha foi enviada para o e-mail informado!");
             }
         } else {
-            include_once 'recuperar_senha.php';
+            include_once 'recuperar.php';
             $this->mostrarMensagem("E-mail não cadastrado!");
         }
     }
@@ -121,115 +121,117 @@ class Controller
     //==============================GERAR PDF==============================
 
     public function menu()
-{
-    // NOVO CÓDIGO DA NAVBAR AQUI
-    echo '<nav class="navbar fixed-top bg-body-tertiary">';
-    echo '  <div class="container-fluid">';
-    echo '      <a class="navbar-brand">Navbar</a>';
-    echo '      <form class="d-flex" role="search">';
-    echo '          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search"/>';
-    echo '          <button class="btn btn-outline-success" type="submit">Buscar</button>';
-    echo '      </form>';
-    echo '  </div>';
-    echo '</nav>';
+    {
+        // NOVO CÓDIGO DA NAVBAR AQUI
+        echo '<nav class="navbar fixed-top bg-body-tertiary">';
+        echo '  <div class="container-fluid">';
+        echo '      <a class="navbar-brand">Navbar</a>';
+        echo '      <form class="d-flex" role="search">';
+        echo '          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search"/>';
+        echo '          <button class="btn btn-outline-success" type="submit">Buscar</button>';
+        echo '      </form>';
+        echo '  </div>';
+        echo '</nav>';
 
-    // CÓDIGO EXISTENTE DO MENU LATERAL (sidebar) ABAIXO
-    echo '<ul class="navbar-nav sidebar-gradient sidebar sidebar-dark accordion" id="accordionSidebar">';
+        // DEPOIS
+        echo '<ul class="navbar-nav sidebar-gradient sidebar sidebar-dark accordion" id="accordionSidebar">';
+        
+        // Logo
+        echo '<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">';
+        echo '  <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-coins"></i></div>';
+        echo '  <div class="sidebar-brand-text mx-3">SFP-GZ</div>';
+        echo '</a>';
 
-    // Logo
-    echo '<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">';
-    echo '  <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-coins"></i></div>';
-    echo '  <div class="sidebar-brand-text mx-3">SFP-GZ</div>';
-    echo '</a>';
+        echo '<hr class="sidebar-divider my-0">'; // separador logo → dashboard
+        
+        // Dashboard
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="index.php?principal">';
+        echo '    <i class="fas fa-fw fa-tachometer-alt"></i>';
+        echo '    <span>Dashboard</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    echo '<hr class="sidebar-divider my-0">'; // separador logo → dashboard
+        echo '<hr class="sidebar-divider">'; // separador dashboard → menu principal
 
-    // Dashboard
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="index.php?principal">';
-    echo '    <i class="fas fa-fw fa-tachometer-alt"></i>';
-    echo '    <span>Dashboard</span>';
-    echo '  </a>';
-    echo '</li>';
+        // Lançamentos
+        // DENTRO DA SUA public function menu()
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="#" data-toggle="modal" data-target="#modalEscolha">';
+        echo '    <i class="fas fa-fw fa-money-check-alt"></i>';
+        echo '    <span>Lançamentos</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    echo '<hr class="sidebar-divider">'; // separador dashboard → menu principal
+        // Cadastros
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastros" aria-expanded="true" aria-controls="collapseCadastros">';
+        echo '    <i class="fas fa-fw fa-folder-plus"></i>';
+        echo '    <span>Cadastros</span>';
+        echo '  </a>';
+        echo '  <div id="collapseCadastros" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?inserir_banco">Bancos</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_bandeira">Bandeiras</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_cartao">Cartões</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_forma">Formas de rec/pag</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_plano">Plano de contas</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    // Lançamentos
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="#" data-toggle="modal" data-target="#modalEscolha">';
-    echo '    <i class="fas fa-fw fa-money-check-alt"></i>';
-    echo '    <span>Lançamentos</span>';
-    echo '  </a>';
-    echo '</li>';
+        // Consultas
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas" aria-expanded="true" aria-controls="collapseConsultas">';
+        echo '    <i class="fas fa-fw fa-search"></i>';
+        echo '    <span>Consultas</span>';
+        echo '  </a>';
+        echo '  <div id="collapseConsultas" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?consultar_lancamento">Lançamentos</a>';
+        echo '      <div class="collapse-divider"></div>';
+        echo '      <a class="collapse-item" href="index.php?consultar_banco">Bancos</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_bandeira">Bandeiras</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_cartao">Cartões</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_forma">Formas de rec/pag</a>';
+        echo '      <a class="collapse-item" href="index.php?consultar_plano">Plano de contas</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    // Cadastros
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastros" aria-expanded="true" aria-controls="collapseCadastros">';
-    echo '    <i class="fas fa-fw fa-folder-plus"></i>';
-    echo '    <span>Cadastros</span>';
-    echo '  </a>';
-    echo '  <div id="collapseCadastros" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?inserir_banco">Bancos</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_bandeira">Bandeiras</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_cartao">Cartões</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_forma">Formas de rec/pag</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_plano">Plano de contas</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        // Relatórios
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorios" aria-expanded="true" aria-controls="collapseRelatorios">';
+        echo '    <i class="fas fa-fw fa-chart-line"></i>';
+        echo '    <span>Relatórios</span>';
+        echo '  </a>';
+        echo '  <div id="collapseRelatorios" class="collapse" data-parent="#accordionSidebar">';
+        echo '    <div class="bg-white py-2 collapse-inner rounded">';
+        echo '      <a class="collapse-item" href="index.php?consultar_editora">Receitas/mês</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_editora">Despesas/mês</a>';
+        echo '      <a class="collapse-item" href="index.php?inserir_editora">Saldo/mês</a>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '</li>';
 
-    // Consultas
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas" aria-expanded="true" aria-controls="collapseConsultas">';
-    echo '    <i class="fas fa-fw fa-search"></i>';
-    echo '    <span>Consultas</span>';
-    echo '  </a>';
-    echo '  <div id="collapseConsultas" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?consultar_lancamento">Lançamentos</a>';
-    echo '      <div class="collapse-divider"></div>';
-    echo '      <a class="collapse-item" href="index.php?consultar_banco">Bancos</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_bandeira">Bandeiras</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_cartao">Cartões</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_forma">Formas de rec/pag</a>';
-    echo '      <a class="collapse-item" href="index.php?consultar_plano">Plano de contas</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        echo '<hr class="sidebar-divider">';
 
-    // Relatórios
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorios" aria-expanded="true" aria-controls="collapseRelatorios">';
-    echo '    <i class="fas fa-fw fa-chart-line"></i>';
-    echo '    <span>Relatórios</span>';
-    echo '  </a>';
-    echo '  <div id="collapseRelatorios" class="collapse" data-parent="#accordionSidebar">';
-    echo '    <div class="bg-white py-2 collapse-inner rounded">';
-    echo '      <a class="collapse-item" href="index.php?consultar_editora">Receitas/mês</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_editora">Despesas/mês</a>';
-    echo '      <a class="collapse-item" href="index.php?inserir_editora">Saldo/mês</a>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</li>';
+        // Sair
+        echo '<li class="nav-item">';
+        echo '  <a class="nav-link" href="index.php?sair">';
+        echo '    <i class="fas fa-fw fa-sign-out-alt"></i>';
+        echo '    <span>Sair</span>';
+        echo '  </a>';
+        echo '</li>';
 
-    echo '<hr class="sidebar-divider">';
+        echo '</ul>';
+        
+    }
 
-    // Sair
-    echo '<li class="nav-item">';
-    echo '  <a class="nav-link" href="index.php?sair">';
-    echo '    <i class="fas fa-fw fa-sign-out-alt"></i>';
-    echo '    <span>Sair</span>';
-    echo '  </a>';
-    echo '</li>';
-
-    echo '</ul>';
-}
     //==============================MOSTRAR MENSAGEM==============================
 
     public function mostrarMensagem($mensagem)
     {
-        // NavBar
         //<!-- Modal -->
         echo '<div class="modal fade" id="mensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">';
         echo '  <div class="modal-dialog">';

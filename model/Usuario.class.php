@@ -237,7 +237,7 @@ class Usuario extends Conexao
         $this->setEmail($email);
 
         //sql
-        $sql = "SELECT count(*) as quantidade FROM tb_usuario WHERE email= :email";
+        $sql = "SELECT count(*) as quantidade FROM tb_cad_usuario WHERE email= :email";
 
         try {
             //conectar com o banco
@@ -248,33 +248,34 @@ class Usuario extends Conexao
             $query->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             //excutar a query
             $query->execute();
-           //retorna o resultado
+            //retorna o resultado
             $resultado = $query->fetchAll(PDO::FETCH_OBJ);
             //verificar o resultado
             foreach ($resultado as $key => $valor) {
-                 $quantidade = $valor->quantidade;
+                $quantidade = $valor->quantidade;
             }
             //testar quantidade
             if ($quantidade == 1) {
-                 return true;
+                return true;
             } else {
-                 return false;
+                return false;
             }
 
-         } catch (PDOException $e) {
-             //print "Erro ao consultar";
-             return false;
-         }
-     }
+        } catch (PDOException $e) {
+            //print "Erro ao consultar";
+            return false;
+        }
+    }
 
-      public function alterarSenha($email, $senha)
+    //Alterar Senha
+    public function alterarSenha($email, $senha)
     {
         //setar os dados
         $this->setEmail($email);
         $this->setSenha($senha);
 
         //montar query
-        $sql = "update tb_usuario set senha= :senha where email= :email";
+        $sql = "update tb_cad_usuario set senha= :senha where email= :email";
 
         try {
             //conectar com o banco

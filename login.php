@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - SB Admin 2</title>
+  <title>Finanças Pessoais - GZ</title>
 
   <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" rel="stylesheet">
